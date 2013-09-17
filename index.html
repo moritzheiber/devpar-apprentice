@@ -47,11 +47,9 @@
 				<section>
 					<section>
 						<h2>apprentice</h2>
-						<span class="fragement">
 							<blockquote cite="http://github.com/moritzheiber/apprentice/">
 								A MariaDB/MySQL slave lag and cluster integrity checker
 							</blockquote>
-						</span>
 						<aside class="notes">
 							<p>
 								Apprentice is tiny server application (under 300 lines of ruby code) that determines the integrity of a running MariaDB/MySQL slave or MariaDB Galera master-master cluster member and responds to HTTP requests on a pre-defined port, depending on the state of the server it is checking on.
@@ -60,11 +58,17 @@
 					</section>
 					<section>
 						<h2>slave lag</h2>
+						<aside class="notes">
+							<p>
+								Slaves always lack a little behind => Transaction in Checkout, read-write issues<br />
+								Read-write splitting should be done, transactions/checkout only on master
+							</p>
+						</aside>
 					</section>
 					<section>
 						<ul>
 							<li>
-								Seconds_Behind_Master < 120 seconds (or --threshold)
+								Seconds_Behind_Master &lt; 120 seconds (or --threshold)
 							</li>
 							<li>
 								Slave_IO_Running == Yes
@@ -73,6 +77,13 @@
 					</section>
 					<section>
 						<h2>clustering</h2>
+						<p>MariaDB Galera cluster</p>
+						<aside class="notes">
+							<p>
+								MariaDB Galera cluster => Codership<br />
+								Integrated into the regular MariaDB distribution
+							</p>
+						</aside>
 					</section>
 					<section>
 						<ul>
